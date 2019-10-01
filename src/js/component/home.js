@@ -1,18 +1,62 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import ReactDOM from "react-dom";
+import "bootstrap";
 
 let menu = [
-	{ label: "Home", url: "/home" },
-	{ label: "Contact Us", url: "/contact-us" }
+	{
+		label: "About",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	},
+	{
+		label: "Service",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	},
+	{
+		label: "Contact",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	}
+];
+
+let menuStar = [
+	{
+		label: "Start Bootstrap",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	}
+];
+
+let menuHome = [
+	{
+		label: "Home",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	}
 ];
 
 const NavBar = props => {
 	//I have to loop all the items and convert them into LIs
+
+	const itStar = props.itStar.map(item => (
+		<a className="navbar-brand" href={item.url}>
+			{item.label}
+		</a>
+	));
+
+	const itHome = props.itHome.map(item => (
+		<li className="nav-item active">
+			<a className="nav-link" href={item.url}>
+				{item.label}
+				<span className="sr-only">(current)</span>
+			</a>
+		</li>
+	));
+
 	const items = props.items.map(item => (
-		<li class="nav-item">
-			<a class="nav-link" href={item.url}>
+		<li className="nav-item">
+			<a className="nav-link" href={item.url}>
 				{item.label}
 			</a>
 		</li>
@@ -20,13 +64,26 @@ const NavBar = props => {
 
 	//this methods says how the NavBar should look like in HTML
 	return (
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">
-				{/* here I pass the logo url to the navbar image */}
-				<img src={props.logo} />
-			</a>
-			{/* here I pass the array of LIs into the UL */}
-			<ul class="navbar-nav mr-auto">{items}</ul>
+		<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div className="container">
+				{itStar}
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarResponsive"
+					aria-controls="navbarResponsive"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon" />
+				</button>
+				<div className="collapse navbar-collapse" id="navbarResponsive">
+					<ul className="navbar-nav ml-auto">
+						{itHome}
+						{items}
+					</ul>
+				</div>
+			</div>
 		</nav>
 	);
 };
@@ -36,26 +93,7 @@ export class Home extends React.Component {
 	render() {
 		return (
 			<div>
-				<NavBar
-					items={menu}
-					logo="http://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=4geeks"
-				/>
-				<div className="text-center mt-5">
-					<h1>Hello Carlos! I hope you see the project working</h1>
-					<p>
-						<img src={rigoImage} />
-					</p>
-					<a href="#" className="btn btn-success">
-						If you see this green button... bootstrap is working
-					</a>
-					<p>
-						Made by{" "}
-						<a href="http://www.4geeksacademy.com">
-							4Geeks Academy
-						</a>
-						, with love!
-					</p>
-				</div>
+				<NavBar itStar={menuStar} itHome={menuHome} items={menu} />
 			</div>
 		);
 	}
