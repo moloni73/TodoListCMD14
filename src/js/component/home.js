@@ -113,6 +113,36 @@ const Jumbot = props => {
 	return <header className="jumbotron my-4">{itemsj}</header>;
 };
 
+let menucard = [
+	{
+		labelt: "Card title",
+		labelp:
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.",
+		labelf: "Find Out More!",
+		urlc: "http://placehold.it/500x325",
+		urlf:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	}
+];
+const Cardt = props => {
+	const itemsc = props.itemsc.map(item => (
+		<div className="card h-100">
+			<img className="card-img-top" src={item.urlc} alt="" />
+			<div className="card-body">
+				<h4 className="card-title">{item.labelt}</h4>
+				<p className="card-text">{item.labelp}</p>
+			</div>
+			<div className="card-footer">
+				<a href={item.urlf} class="btn btn-primary">
+					{item.labelf}
+				</a>
+			</div>
+		</div>
+	));
+
+	return <div className="col-lg-3 col-md-6 mb-4">{itemsc}</div>;
+};
+
 //create your first component
 export class Home extends React.Component {
 	render() {
@@ -120,6 +150,12 @@ export class Home extends React.Component {
 			<div>
 				<NavBar itStar={menuStar} itHome={menuHome} items={menu} />
 				<Jumbot itemsj={menujumbo} />
+				<div class="row text-center">
+					<Cardt itemsc={menucard} />
+					<Cardt itemsc={menucard} />
+					<Cardt itemsc={menucard} />
+					<Cardt itemsc={menucard} />
+				</div>
 			</div>
 		);
 	}
