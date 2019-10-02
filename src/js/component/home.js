@@ -143,6 +143,22 @@ const Cardt = props => {
 	return <div className="col-lg-3 col-md-6 mb-4">{itemsc}</div>;
 };
 
+let menufoot = [
+	{
+		labelt: "Copyright © Your Website 2019"
+	}
+];
+
+const Footert = props => {
+	const itemsf = props.itemsf.map(item => (
+		<div className="container">
+			<p className="m-0 text-center text-white">{item.labelt}</p>
+		</div>
+	));
+
+	return <footer className="py-5 bg-dark">{itemsf}</footer>;
+};
+
 //create your first component
 export class Home extends React.Component {
 	render() {
@@ -156,6 +172,7 @@ export class Home extends React.Component {
 					<Cardt itemsc={menucard} />
 					<Cardt itemsc={menucard} />
 				</div>
+				<Footert itemsf={menufoot} />
 			</div>
 		);
 	}
