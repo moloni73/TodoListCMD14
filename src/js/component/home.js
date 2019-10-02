@@ -88,12 +88,38 @@ const NavBar = props => {
 	);
 };
 
+let menujumbo = [
+	{
+		labeld: "A Warm Welcome!",
+		labelp:
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.",
+		labelb: "Call to action!",
+		url:
+			"https://blackrockdigital.github.io/startbootstrap-heroic-features/#"
+	}
+];
+
+const Jumbot = props => {
+	const itemsj = props.itemsj.map(item => (
+		<div className="container">
+			<h1 className="display-3">{item.labeld}</h1>
+			<p className="lead">{item.labelp}</p>
+			<a href={item.url} className="btn btn-primary btn-lg">
+				{item.labelb}
+			</a>
+		</div>
+	));
+
+	return <header className="jumbotron my-4">{itemsj}</header>;
+};
+
 //create your first component
 export class Home extends React.Component {
 	render() {
 		return (
 			<div>
 				<NavBar itStar={menuStar} itHome={menuHome} items={menu} />
+				<Jumbot itemsj={menujumbo} />
 			</div>
 		);
 	}
