@@ -39,16 +39,16 @@ let menuHome = [
 const NavBar = props => {
 	//I have to loop all the items and convert them into LIs
 
-	const itStar = props.itStar.map(item => (
-		<a className="navbar-brand" href={item.url}>
-			{item.label}
+	const itStar = props.itStar.map(item1 => (
+		<a className="navbar-brand" href={item1.url}>
+			{item1.label}
 		</a>
 	));
 
-	const itHome = props.itHome.map(item => (
+	const itHome = props.itHome.map(item2 => (
 		<li className="nav-item active">
-			<a className="nav-link" href={item.url}>
-				{item.label}
+			<a className="nav-link" href={item2.url}>
+				{item2.label}
 				<span className="sr-only">(current)</span>
 			</a>
 		</li>
@@ -100,12 +100,12 @@ let menujumbo = [
 ];
 
 const Jumbot = props => {
-	const itemsj = props.itemsj.map(item => (
+	const itemsj = props.itemsj.map(itemj => (
 		<div className="container">
-			<h1 className="display-3">{item.labeld}</h1>
-			<p className="lead">{item.labelp}</p>
-			<a href={item.url} className="btn btn-primary btn-lg">
-				{item.labelb}
+			<h1 className="display-3">{itemj.labeld}</h1>
+			<p className="lead">{itemj.labelp}</p>
+			<a href={itemj.url} className="btn btn-primary btn-lg">
+				{itemj.labelb}
 			</a>
 		</div>
 	));
@@ -125,16 +125,16 @@ let menucard = [
 	}
 ];
 const Cardt = props => {
-	const itemsc = props.itemsc.map(item => (
+	const itemsc = props.itemsc.map(itemc => (
 		<div className="card h-100">
-			<img className="card-img-top" src={item.urlc} alt="" />
+			<img className="card-img-top" src={itemc.urlc} alt="" />
 			<div className="card-body">
-				<h4 className="card-title">{item.labelt}</h4>
-				<p className="card-text">{item.labelp}</p>
+				<h4 className="card-title">{itemc.labelt}</h4>
+				<p className="card-text">{itemc.labelp}</p>
 			</div>
 			<div className="card-footer">
-				<a href={item.urlf} class="btn btn-primary">
-					{item.labelf}
+				<a href={itemc.urlf} className="btn btn-primary">
+					{itemc.labelf}
 				</a>
 			</div>
 		</div>
@@ -150,9 +150,9 @@ let menufoot = [
 ];
 
 const Footert = props => {
-	const itemsf = props.itemsf.map(item => (
+	const itemsf = props.itemsf.map(itemf => (
 		<div className="container">
-			<p className="m-0 text-center text-white">{item.labelt}</p>
+			<p className="m-0 text-center text-white">{itemf.labelt}</p>
 		</div>
 	));
 
@@ -166,7 +166,7 @@ export class Home extends React.Component {
 			<div>
 				<NavBar itStar={menuStar} itHome={menuHome} items={menu} />
 				<Jumbot itemsj={menujumbo} />
-				<div class="row text-center">
+				<div className="row text-center">
 					<Cardt itemsc={menucard} />
 					<Cardt itemsc={menucard} />
 					<Cardt itemsc={menucard} />
