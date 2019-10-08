@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import "bootstrap";
 
 //include your index.scss file into the bundle
-import "../styles/index.scss";
+import "../styles/TodoList.css";
 
 //import your own components
 import { ControlledImput } from "./component/home.js";
